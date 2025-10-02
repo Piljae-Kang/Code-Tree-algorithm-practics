@@ -1,5 +1,7 @@
 #include <iostream>
 #include <vector>
+#include <utility>
+#include <climits>
 
 using namespace std;
 
@@ -10,7 +12,7 @@ int visited[16] = {0};
 
 int max_value = 0;
 
-bool check_overlap(vector<int> arr, int idx){
+bool check_overlap(vector<int>& arr, int idx){
 
     for(int i=x1[idx]; i<=x2[idx]; i++){
 
@@ -18,21 +20,11 @@ bool check_overlap(vector<int> arr, int idx){
             return true;
         }
         else{
-
             arr[i] = 1;
         }
     }
 
     return false;
-
-}
-
-void reset_vector(vector<int>& arr, int idx){
-
-    for(int i=x1[idx]; i<=x2[idx]; i++){
-
-        arr[i] == 0;
-    }
 
 }
 
@@ -56,9 +48,13 @@ void find_max_none_overlap(vector<int>& arr, int depth, int idx){
 
         if(visited[i] == 1) continue;
 
+        vector<int> tmp = arr;
+
         visited[i] = 1;
         find_max_none_overlap(arr, depth+1, i);
-        reset_vector(arr, i);
+        
+        arr = move(tmp);
+
         visited[i] = 0;
     }
 
@@ -81,7 +77,7 @@ int main() {
 
     // Please write your code here.
 
-    vector<int> arr(n+1, 0);
+    vector<int> arr(16, 0);
 
     find_max_none_overlap(arr, 0, 0);
     
