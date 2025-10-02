@@ -77,7 +77,7 @@ int main() {
 
     // Please write your code here.
 
-    vector<int> arr(16, 0);
+    vector<int> arr(1001, 0);
 
     find_max_none_overlap(arr, 0, 0);
     
