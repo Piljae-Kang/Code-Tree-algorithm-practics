@@ -29,6 +29,16 @@ bool check_overlap(vector<int>& arr, vector<int>& updated, int idx){
 
 }
 
+void reset(vector<int>& arr, vector<int>& updated, int previous_size){
+
+	while(updated.size() > previous_size){
+		int idx = updated.back();
+		updated.pop_back();
+		arr[idx] = 0;
+	}
+
+}
+
 
 void find_max_none_overlap(vector<int>& arr, vector<int>& updated, int depth, int idx){
 
@@ -49,12 +59,12 @@ void find_max_none_overlap(vector<int>& arr, vector<int>& updated, int depth, in
 
         if(visited[i] == 1) continue;
 
-        vector<int> tmp = updated;
+        int previous_size = updated.size();
 
         visited[i] = 1;
         find_max_none_overlap(arr, updated, depth+1, i);
         
-        updated = move(tmp);
+        reset(arr, updated, previous_size);
 
         visited[i] = 0;
     }
