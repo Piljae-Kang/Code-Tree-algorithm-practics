@@ -35,6 +35,7 @@ void reset(vector<int>& arr, vector<int>& updated, int previous_size){
 		int idx = updated.back();
 		updated.pop_back();
 		arr[idx] = 0;
+
 	}
 
 }
@@ -55,7 +56,7 @@ void find_max_none_overlap(vector<int>& arr, vector<int>& updated, int depth, in
 
     }
 
-    for(int i=1; i<=n; i++){
+    for(int i=idx+1; i<=n; i++){
 
         if(visited[i] == 1) continue;
 
