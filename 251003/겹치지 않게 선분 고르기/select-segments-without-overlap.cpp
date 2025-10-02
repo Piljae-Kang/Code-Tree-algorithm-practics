@@ -12,7 +12,7 @@ int visited[16] = {0};
 
 int max_value = 0;
 
-bool check_overlap(vector<int>& arr, int idx){
+bool check_overlap(vector<int>& arr, vector<int>& updated, int idx){
 
     for(int i=x1[idx]; i<=x2[idx]; i++){
 
@@ -21,6 +21,7 @@ bool check_overlap(vector<int>& arr, int idx){
         }
         else{
             arr[i] = 1;
+            updated.push_back(i);
         }
     }
 
@@ -29,11 +30,11 @@ bool check_overlap(vector<int>& arr, int idx){
 }
 
 
-void find_max_none_overlap(vector<int>& arr, int depth, int idx){
+void find_max_none_overlap(vector<int>& arr, vector<int>& updated, int depth, int idx){
 
     if(depth > 0){
 
-        if(check_overlap(arr, idx)) return;
+        if(check_overlap(arr, updated, idx)) return;
 
         max_value = max(max_value, depth);
 
@@ -48,12 +49,12 @@ void find_max_none_overlap(vector<int>& arr, int depth, int idx){
 
         if(visited[i] == 1) continue;
 
-        vector<int> tmp = arr;
+        vector<int> tmp = updated;
 
         visited[i] = 1;
-        find_max_none_overlap(arr, depth+1, i);
+        find_max_none_overlap(arr, updated, depth+1, i);
         
-        arr = move(tmp);
+        updated = move(tmp);
 
         visited[i] = 0;
     }
@@ -79,7 +80,9 @@ int main() {
 
     vector<int> arr(1001, 0);
 
-    find_max_none_overlap(arr, 0, 0);
+    vector<int> updated;
+
+    find_max_none_overlap(arr, updated, 0, 0);
     
     cout << max_value << "\n";
 
