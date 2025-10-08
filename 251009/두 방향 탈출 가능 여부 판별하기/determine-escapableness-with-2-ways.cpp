@@ -37,7 +37,7 @@ void dfs(int u, int v){
 
     }
 
-    visited[u][v] = 0;
+    // visited[u][v] = 0;
 
 }
 
