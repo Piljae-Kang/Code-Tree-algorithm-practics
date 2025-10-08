@@ -35,9 +35,9 @@ void dfs(int u, int v){
 
         dfs(n_u, n_v);
 
-        visited[n_u][n_v] = 0;
     }
 
+    visited[u][v] = 0;
 
 }
 
