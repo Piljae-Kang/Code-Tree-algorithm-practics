@@ -39,7 +39,7 @@ void bfs(int u, int v){
 
             if(a[n_u][n_v] == 0) continue;
 
-            dist[n_u][n_v] = dist[u][v] + 1;
+            dist[n_u][n_v] = dist[cur_u][cur_v] + 1;
 
 
             q.push(make_pair(n_u, n_v));
