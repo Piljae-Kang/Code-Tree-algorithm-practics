@@ -90,7 +90,7 @@ int main() {
 
     }
 
-    cout << max_value << " " << max_idx << "\n";
+    cout << max_idx << " " << max_value << "\n";
 
     return 0;
 }
