@@ -24,14 +24,13 @@ void bfs(int u, int v){
     q.push(make_pair(u, v));
     visited[u][v] = 1;
 
-    if(grid[u][v] == 0){
 
-        if(visited_g[u][v] == 0){
-            visited_cnt++;
-            visited_g[u][v] = 1;
-        } 
 
-    }
+    if(visited_g[u][v] == 0){
+        visited_cnt++;
+        visited_g[u][v] = 1;
+    } 
+
 
     while(!q.empty()){
 
@@ -81,7 +80,7 @@ int main() {
 
         memset(visited, 0, sizeof(visited));
 
-        bfs(u, v);
+        bfs(u-1, v-1);
         
     }
 
