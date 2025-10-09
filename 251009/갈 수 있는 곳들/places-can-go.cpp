@@ -22,14 +22,14 @@ void bfs(int u, int v){
     queue<pair<int, int>> q;
 
     q.push(make_pair(u, v));
-    visited[u][v] = 1;
 
+	if(visited[u][v] == 0){
 
+		visited[u][v] = 1;
+		visited_cnt++;
+	
 
-    if(visited_g[u][v] == 0){
-        visited_cnt++;
-        visited_g[u][v] = 1;
-    } 
+	}
 
 
     while(!q.empty()){
@@ -47,16 +47,10 @@ void bfs(int u, int v){
             if(n_u < 0 || n_v < 0 || n_u >= n || n_v >= n) continue;
             if(visited[n_u][n_v] == 1 || grid[n_u][n_v] == 1) continue;
 
-            if(visited_g[n_u][n_v] == 0){
-
-                visited_cnt++;
-                visited_g[n_u][n_v] = 1;
-
-            } 
-
             q.push(make_pair(n_u, n_v));
 
             visited[n_u][n_v] = 1;
+			visited_cnt++;
 
         }
 
@@ -66,6 +60,12 @@ void bfs(int u, int v){
 }
 
 int main() {
+
+	ios::sync_with_stdio(false);
+	cin.tie(0);
+	cout.tie(0);
+
+
     cin >> n >> k;
 
     for (int i = 0; i < n; i++)
@@ -78,7 +78,7 @@ int main() {
 
 		cin >> u >> v;
 
-        memset(visited, 0, sizeof(visited));
+        // memset(visited, 0, sizeof(visited));
 
         bfs(u-1, v-1);
         
