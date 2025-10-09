@@ -21,11 +21,10 @@ void bfs(int u, int v){
 
     queue<pair<int, int>> q;
 
+    q.push(make_pair(u, v));
+    visited[u][v] = 1;
+
     if(grid[u][v] == 0){
-
-        q.push(make_pair(u, v));
-
-        visited[u][v] = 1;
 
         if(visited_g[u][v] == 0){
             visited_cnt++;
