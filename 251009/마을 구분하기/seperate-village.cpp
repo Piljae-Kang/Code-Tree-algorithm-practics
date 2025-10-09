@@ -22,7 +22,7 @@ void dfs(int u, int v){
         int n_u = u + move_func[i][0];
         int n_v = v + move_func[i][1];
 
-        if(n_u < 0 || n_v <0 || n_u >= n; n_v >= n) continue;
+        if(n_u < 0 || n_v <0 || n_u >= n || n_v >= n) continue;
 
         if(visited[n_u][n_v] == 1 || grid[n_u][n_v] == 0) continue;
 
