@@ -50,7 +50,7 @@ void bfs(int u, int v){
                     r = n_u; c = n_v;
                 }
 
-                if(n_u == u && n_v < c){
+                if(n_u == r && n_v < c){
                     r = n_u; c = n_v;
                 }
             }
