@@ -35,7 +35,7 @@ void bfs(int u, int v){
 
             if(n_u <0 || n_v <0 || n_u >=n || n_v >= n) continue;
 
-            if(grid[n_u][n_v] > value) continue;
+            if(grid[n_u][n_v] >= value) continue;
 
             if(visited[n_u][n_v] == 1) continue;
 
