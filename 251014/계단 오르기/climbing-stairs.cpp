@@ -9,19 +9,21 @@ int main() {
 
     // Please write your code here.
 
-    int arr[1001] = {0};
+    long long arr[1001] = {0};
 
     arr[2] = 1; arr[3] = 1; arr[4] = 1;
 
     for(int i=5; i<=n; i++){
 
-        if(arr[i-2] != 0) arr[i] += arr[i-2];
+        arr[i] += arr[i-2];
+        arr[i] += arr[i-3];
+        arr[i] = arr[i] % 10007;
 
-        if(arr[i-3] != 0) arr[i] += arr[i-3];
+        cout << arr[i] << "\n";
 
     }
 
-    cout << arr[n] % 10 << "\n";
+    cout << arr[n] << "\n";
 
     return 0;
 }
