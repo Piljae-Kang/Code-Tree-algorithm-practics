@@ -19,8 +19,6 @@ int main() {
         arr[i] += arr[i-3];
         arr[i] = arr[i] % 10007;
 
-        cout << arr[i] << "\n";
-
     }
 
     cout << arr[n] << "\n";
