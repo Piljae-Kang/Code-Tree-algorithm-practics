@@ -8,7 +8,7 @@ int grid[100][100];
 int main() {
     cin >> n;
 
-    int max_value = 0;
+    long long max_value = 0;
 
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
@@ -16,7 +16,7 @@ int main() {
         }
     }
 
-    int max_arr[100][100];
+    long long max_arr[100][100];
 
     max_arr[0][0] = grid[0][0];
 
@@ -37,7 +37,7 @@ int main() {
         }
     }
 
-    cout << max_value << "\n";
+    cout << max_arr[n-1][n-1] << "\n";
 
 
     return 0;
